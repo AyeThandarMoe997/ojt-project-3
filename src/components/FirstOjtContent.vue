@@ -77,13 +77,11 @@ export default {
       this.form.phone_no = ''
     },
     setConfirm() {
-      console.log("in setConfirm");
-      console.log(this.form.name);
       if(this.form.name == '')
       {
         this.nameError = '* Name field is required!';
       } else {
-          this.isLetter
+          this.isLetter();
         if(this.is_alpha == false) {
           this.nameError= '* Name is only accept alphabet *';
         } 
@@ -109,20 +107,19 @@ export default {
       {
         this.phone_noError = '* Phone No field is required!';
       } else {
-        this.isNumber
+        this.isNumber();
         if(this.is_no == false) {
         this.phone_noError= '* Phone No is only accept number *';
       }
       }
     },
     isLetter() {
-      console.log("in is letter");
       if(/^[A-Za-z]+$/.test(this.form.name))
       return this.is_alpha;
       else this.is_alpha = false;
     },
     isNumber() {
-      if(/^[1-10]+$/.test(this.form.phone_no))
+      if(/^[0-9]+$/.test(this.form.phone_no))
       return this.is_no;
       else this.is_no = false;
     }
